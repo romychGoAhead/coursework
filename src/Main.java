@@ -136,10 +136,10 @@ public class Main {
 
     public static Employee minWage() {
 
-        Employee minEmployee = null;
+        Employee minEmployee = employees[0];
 
         for (Employee employee : employees) {
-            if (minEmployee == null || employee.getSalary() < minEmployee.getSalary()) {
+            if (employee.getSalary() < minEmployee.getSalary()) {
                 minEmployee = employee;
             }
 
@@ -149,14 +149,14 @@ public class Main {
 
     public static Employee minWage2(int department) {
 
-        Employee minEmployee = null;
+        Employee minEmployee = employees[0];
 
         for (Employee employee : employees) {
             if (employee.getDepartment() != department) {
                 continue;
             }
 
-            if (minEmployee == null || employee.getSalary() < minEmployee.getSalary()) {
+            if (employee.getSalary() < minEmployee.getSalary()) {
                 minEmployee = employee;
             }
 
@@ -166,12 +166,12 @@ public class Main {
 
     public static Employee maxWage() {
 
-        Employee maxWage = null;
+        Employee maxWage = employees[0];
 
         for (int i = 0, employeesLength = employees.length; i < employeesLength; i++) {
             Employee employee = employees[i];
 
-            if (maxWage == null || employee.getSalary() > maxWage.getSalary()) {
+            if (employee.getSalary() > maxWage.getSalary()) {
                 maxWage = employee;
             }
 
@@ -181,14 +181,14 @@ public class Main {
 
     public static Employee maxWage2(int department) {
 
-        Employee maxEmployee = null;
+        Employee maxEmployee = employees[0];
 
         for (Employee employee : employees) {
             if (employee.getDepartment() != department) {
                 continue;
             }
 
-            if (maxEmployee == null || employee.getSalary() > maxEmployee.getSalary()) {
+            if (employee.getSalary() > maxEmployee.getSalary()) {
                 maxEmployee = employee;
             }
 
@@ -201,8 +201,9 @@ public class Main {
         double averageSalary = 0;
         for (Employee employee : employees) {
             salary += employee.getSalary();
-            averageSalary = salary / employee.getId();
+
         }
+        averageSalary = salary / employees.length;
         return averageSalary;
     }
 
